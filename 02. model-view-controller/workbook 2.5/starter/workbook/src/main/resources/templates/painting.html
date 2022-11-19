@@ -3,6 +3,11 @@
     <head>
         <title>Painting</title>
     </head>
-    <body>               
+    <body>
+        <div th:switch="${painting}">
+            <img th:case="'starry-night'" width="200px" src="/images/starry-night.jpeg"  />
+            <img th:case="'mona-lisa'" width="200px" src="/images/mona-lisa.jpeg" />
+            <p th:case="*">No painting to display</p>
+        </div>
     </body>
 </html>
