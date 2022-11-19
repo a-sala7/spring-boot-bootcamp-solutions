@@ -11,30 +11,10 @@
             <th>Episode</th>
             <th>Rating</th>
           </tr>
-          <tr th:object="${shows[0]}">
-            <td th:text="*{title}"></td>
-            <td th:text="*{episode}"></td>
-            <td th:text="*{rating}"></td>
-          </tr>
-          <tr th:object="${shows[1]}">
-            <td th:text="*{title}"></td>
-            <td th:text="*{episode}"></td>
-            <td th:text="*{rating}"></td>
-          </tr>
-          <tr th:object="${shows[2]}">
-            <td th:text="*{title}"></td>
-            <td th:text="*{episode}"></td>
-            <td th:text="*{rating}"></td>
-          </tr>
-          <tr th:object="${shows[3]}">
-            <td th:text="*{title}"></td>
-            <td th:text="*{episode}"></td>
-            <td th:text="*{rating}"></td>
-          </tr>
-          <tr th:object="${shows[4]}">
-            <td th:text="*{title}"></td>
-            <td th:text="*{episode}"></td>
-            <td th:text="*{rating}"></td>
+          <tr th:each="show: ${shows}">
+            <td th:text="${show.title}"></td>
+            <td th:text="${show.episode}"></td>
+            <td th:text="${show.rating}"></td>
           </tr>
         </table>        
     </body>
