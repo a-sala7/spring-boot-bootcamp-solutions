@@ -75,3 +75,14 @@ body {
   background-color: #ddd;
   color: black;
 }
+
+.checkDiv {
+  display: flex;
+  color: white;
+  align-items: center;
+  height: 10px;
+}
+
+.checkDiv input {
+  margin-right: 8px;
+}
