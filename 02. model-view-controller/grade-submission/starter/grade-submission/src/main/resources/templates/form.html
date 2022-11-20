@@ -6,22 +6,23 @@
   </head>    
   <body>
     <div class="topnav">
-      <a>Form</a>
-      <a>Grades</a>
-    </div>   
+      <a th:href="@{/}">Form</a>
+      <a th:href="@{/grades}">Grades</a>
+    </div>
     <div class="container">
       <h2> Grade Portal </h2>
-      <form method="post" th:object="${gradeForm}" th:action="@{/submitGrade}"> 
+      <form method="post" th:object="${gradeForm}" th:action="@{/submitGrade}">
+        <input type="hidden" th:field="*{id}">
         <input type="text" placeholder="Name" th:field="*{name}">
         <input type="text" placeholder="Subject" th:field="*{subject}">
-        <input type="text" placeholder="Score" th:field="*{score}">  
+        <input type="text" placeholder="Score" th:field="*{score}">
         <div class="checkDiv">
-          <input type="checkbox" th:field="*{submittingAgain}">  
+          <input type="checkbox" th:field="*{submittingAgain}">
           <label>Submit another</label>
         </div>
         <br>
         <input type="submit" value="Submit">
-      </form>  
+      </form>
     </div>
 </body>
 </html>

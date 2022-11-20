@@ -1,6 +1,9 @@
 package com.ltp.gradesubmission;
 
+import java.util.UUID;
+
 public class GradeForm {
+    private String id;
     private String name;
     private String subject;
     private String score;
@@ -8,7 +11,8 @@ public class GradeForm {
 
     public GradeForm() {}
 
-    public GradeForm(String name, String subject, String score, boolean submittingAgain) {
+    public GradeForm(String id, String name, String subject, String score, boolean submittingAgain) {
+        this.id = id;
         this.name = name;
         this.subject = subject;
         this.score = score;
@@ -36,12 +40,20 @@ public class GradeForm {
     public boolean isSubmittingAgain() {
         return submittingAgain;
     }
-
     public void setSubmittingAgain(boolean submittingAgain) {
         this.submittingAgain = submittingAgain;
     }
+    public String getId(){
+        return this.id;
+    }
+    public void setId(String id){
+        this.id = id;
+    }
 
     public Grade toGrade() {
-        return new Grade(this.name, this.subject, this.score);
+        if(this.id == null || this.id.trim().equals("")){
+            return new Grade(UUID.randomUUID().toString(), this.name, this.subject, this.score);
+        }
+        return new Grade(this.id, this.name, this.subject, this.score);
     }
 }
