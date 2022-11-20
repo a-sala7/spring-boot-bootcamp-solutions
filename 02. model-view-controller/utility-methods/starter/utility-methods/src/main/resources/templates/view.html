@@ -5,6 +5,8 @@
         <title>Utility Methods</title>
     </head>
     <body>
-        <h1></h1>  
+        <h1 th:text="${#strings.contains(menu, 'rice cakes')}"></h1>
+        <h1 th:if="${#strings.contains(menu, 'rice cakes')}">Rice cakes found!</h1>
+        <h1 th:unless="${#strings.contains(menu, 'rice cakes')}">Rice cakes not found :(</h1>
     </body>
 </html>
