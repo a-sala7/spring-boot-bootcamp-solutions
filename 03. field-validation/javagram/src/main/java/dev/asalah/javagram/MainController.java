@@ -23,6 +23,9 @@ public class MainController {
 
     @PostMapping("/submitUser")
     public String handleSubmitUser(@Valid User user, BindingResult bindingResult){
+        if(user.getFirstName().equalsIgnoreCase(user.getLastName())){
+            bindingResult.rejectValue("lastName", "", "Last Name cannot be the same as First Name");
+        }
         if(bindingResult.hasErrors()){
             return "sign-up";
         }
