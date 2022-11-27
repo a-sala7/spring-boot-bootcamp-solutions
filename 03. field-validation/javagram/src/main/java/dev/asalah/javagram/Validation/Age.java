@@ -13,6 +13,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = AgeValidator.class)
 public @interface Age {
     String message() default "INVALID AGE";
+    int minAge() default 0;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

@@ -32,7 +32,7 @@ public class User {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Past(message = "Date of Birth must be in the past")
-    @Age(message = "Must be at least 18")
+    @Age(minAge = 18, message = "Must be at least 18")
     private Date dateOfBirth;
 
     public User() {}
