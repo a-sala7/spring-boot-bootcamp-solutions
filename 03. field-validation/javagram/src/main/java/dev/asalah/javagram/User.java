@@ -7,6 +7,9 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import dev.asalah.javagram.Validation.Age;
+import dev.asalah.javagram.Validation.Username;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 
@@ -21,6 +24,7 @@ public class User {
 
     @NotBlank(message = "Username cannot be blank")
     @Size(min = 7, message = "Username must be at least 7 characters")
+    @Username(message = "Cannot contain special characters or uppercase characters")
     private String username;
 
     @Email(message = "Please enter a valid email address")
@@ -28,6 +32,7 @@ public class User {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Past(message = "Date of Birth must be in the past")
+    @Age(message = "Must be at least 18")
     private Date dateOfBirth;
 
     public User() {}
